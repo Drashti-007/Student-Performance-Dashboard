@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../static/admin.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
     <div class="sidebar">
 
         <div class="profile">
-            <img src="../assets/image/priya sharma.jpg" alt="Admin">
+            <img src="{{ url_for('static', filename='image/priya sharma.jpg') }}">
             <h3>Admin</h3>
         </div>
 
@@ -62,13 +62,24 @@
 
             <form id="studentForm">
 
-                <input type="text" id="studentName" placeholder="Student Name" required>
+                <input type="text" id="enrollment_no" placeholder="Enrollment No">
+                <input type="text" id="name" placeholder="Name">
+                <input type="password" id="password" placeholder="Password">
+                <input type="email" id="email" placeholder="Email">
+                <input type="text" id="class_name" placeholder="Class">
+                <input type="text" id="mobile" placeholder="Mobile">
 
-                <input type="text" id="studentId" placeholder="Student ID" required>
+                <input type="number" id="maths" placeholder="Maths">
+                <input type="number" id="physics" placeholder="Physics">
+                <input type="number" id="chemistry" placeholder="Chemistry">
+                <input type="number" id="english" placeholder="English">
+                <input type="number" id="computer_science" placeholder="Computer Science">
 
-                <input type="email" id="studentEmail" placeholder="Student Email" required>
-
-                <input type="text" id="studentMarks" placeholder="Student Marks" required>
+                <input type="number" id="attendance_maths" placeholder="Attendance Maths">
+                <input type="number" id="attendance_physics" placeholder="Attendance Physics">
+                <input type="number" id="attendance_chemistry" placeholder="Attendance Chemistry">
+                <input type="number" id="attendance_english" placeholder="Attendance English">
+                <input type="number" id="attendance_cs" placeholder="Attendance CS">
                 <button type="submit">
                     Add Student
                 </button>
@@ -80,10 +91,10 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Student ID</th>
+                        <th>Enrollment No</th>
                         <th>Email</th>
-                        <th>Marks</th>
-                        <td>${status}</td>
+                        <th>Percentage</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -176,7 +187,7 @@
 
 </div>
 
-<script src="../static/admin.js"></script>
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
 
 </body>
 </html>

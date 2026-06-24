@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 from database.db import create_table, create_admin_table
 from database.db import get_db_connection
@@ -19,7 +19,31 @@ app.register_blueprint(admin_bp)
 
 @app.route('/')
 def home():
-    return "Student Performance Dashboard Backend Running"
+    return render_template("index.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+@app.route('/student')
+def student():
+    return render_template('student.html')
+
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')
+
+@app.route('/admin-dashboard')
+def admin_dashboard():
+    return render_template('adminDashboard.html')
+
+'''temporary route to test the database connection and retrieve all students'''
+@app.route('/test-students')
+def test_students():
+
+    from models.admin_model import get_all_students
+
+    return get_all_students()
 
 @app.route('/create-admin')
 def create_admin():

@@ -6,7 +6,7 @@
   <title>Academic Pulse</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -30,8 +30,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </nav>
 
     <div class="nav-buttons">
-      <button class="login-btn"><a href="login.html">Login</a></button>
-      <button class="start-btn"><a href="login.html">Get Started</a></button>
+      <button class="login-btn"><a href="/login">Login</a></button>
+      <button class="start-btn"><a href="/login">Get Started</a></button>
     </div>
   </header>
 
@@ -271,7 +271,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
       <div class="user-top">
 
-        <img src="../assets/image/priya sharma.jpg" alt="user">
+        <img src="{{ url_for('static', filename='image/priya sharma.jpg') }}">
 
         <div class="stars">
           ⭐⭐⭐⭐⭐
@@ -296,7 +296,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
       <div class="user-top">
 
-        <img src="../assets/image/amit varma.jpg" alt="user">
+        <img src="{{ url_for('static', filename='image/amit varma.jpg') }}" alt="user">
 
         <div class="stars">
           ⭐⭐⭐⭐⭐
@@ -320,7 +320,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
       <div class="user-top">
 
-        <img src="../assets/image/neha patel.jpg" alt="user">
+        <img src="{{ url_for('static', filename='image/neha patel.jpg') }}" alt="user">
 
         <div class="stars">
           ⭐⭐⭐⭐⭐

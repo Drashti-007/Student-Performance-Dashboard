@@ -8,7 +8,7 @@
     <title>Login - Academic Pulse</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../static/login.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,13 +26,14 @@
                 Welcome Back 👋
             </p>
 
-            <form>
+            <form id="adminLoginForm">
 
                 <div class="input-group">
 
                     <label>Username</label>
 
                     <input type="text"
+                            id="username"
                            placeholder="User name">
 
                 </div>
@@ -42,6 +43,7 @@
                     <label>Password</label>
 
                     <input type="password"
+                           id="password"
                            placeholder="Enter your password">
 
                 </div>
@@ -53,7 +55,7 @@
             </form>
             <p class="admin-text">
                 login as Student
-                <a href="login.html">Student </a>
+                <a href="/login">Student</a>
             </p>
 
 
@@ -62,6 +64,7 @@
         </div>
 
     </div>
+    <script src="{{ url_for('static', filename='adminLogin.js') }}"></script>
 
 </body>
 </html>

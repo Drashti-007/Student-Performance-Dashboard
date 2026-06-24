@@ -20,6 +20,7 @@ def create_table():
             password TEXT NOT NULL,
             email TEXT,
             class_name TEXT,
+            mobile TEXT,
             maths INTEGER,
             physics INTEGER,
             chemistry INTEGER,
