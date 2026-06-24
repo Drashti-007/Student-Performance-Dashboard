@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../static/admin.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="profile">
+            <img src="../assets/image/priya sharma.jpg" alt="Admin">
+            <h3>Admin</h3>
+        </div>
+
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('students')">Students</button>
+        <button onclick="showSection('subjects')">Subjects</button>
+        <button onclick="showSection('analytics')">Analytics</button>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Home -->
+        <div id="home" class="content active">
+
+            <h1>Welcome Radhika 👋</h1>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Class</h3>
+                    <p>12th Science</p>
+                </div>
+
+                <div class="card">
+                    <h3>Subject</h3>
+                    <p>Computer Science</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Students</h3>
+                    <p>50</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Students -->
+        <div id="students" class="content">
+
+            <h2>Student Management</h2>
+
+            <form id="studentForm">
+
+                <input type="text" id="studentName" placeholder="Student Name" required>
+
+                <input type="text" id="studentId" placeholder="Student ID" required>
+
+                <input type="email" id="studentEmail" placeholder="Student Email" required>
+
+                <input type="text" id="studentMarks" placeholder="Student Marks" required>
+                <button type="submit">
+                    Add Student
+                </button>
+
+            </form>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Student ID</th>
+                        <th>Email</th>
+                        <th>Marks</th>
+                        <td>${status}</td>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Subjects -->
+        <div id="subjects" class="content">
+
+                <h2>Subjects</h2>
+
+                <table>
+
+                    <tr>
+                        <th>Subject</th>
+                        <th>Teacher</th>
+                        <th>Average Marks</th>
+                    
+                        
+                    </tr>
+
+                    
+
+                    <tr>
+                        <td>English</td>
+                        <td>Ms. Sonal</td>
+                        <td>75%</td>
+                    </tr>
+
+                    <tr>
+                        <td>Chemistry</td>
+                        <td>Mr. Nimesh</td>
+                        <td>65%</td>
+                    </tr>
+                    <tr>
+                        <td>physics</td>
+                        <td>Mr. Dhruv</td>
+                        <td>70%</td>
+                    
+                    </tr>
+                    <tr>
+                        <td>Maths</td>
+                        <td>Mr. Vijay</td>
+                        <td>72%</td>
+                    </tr>
+                    <tr>
+                        <td>Computer Science</td>
+                        <td>Ms. Radhika</td>
+                        <td>78%</td>
+                    
+                    </tr>
+
+                </table>
+
+            </div>
+
+        <!-- Analytics -->
+        <div id="analytics" class="content">
+
+            <h2>Overall Performance</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Average Marks</h3>
+                    <p>78%</p>
+                </div>
+
+                <div class="card">
+                    <h3>Pass Students</h3>
+                    <p>35</p>
+                </div>
+
+                <div class="card">
+                    <h3>Fail Students</h3>
+                    <p>15</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../static/admin.js"></script>
+
+</body>
+</html>
