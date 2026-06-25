@@ -37,6 +37,7 @@ def get_student_dashboard(enrollment_no):
 
     dashboard_data = {
         "name": student['name'],
+        "email": student['email'],
 
         "marks": {
             "maths": student['maths'],

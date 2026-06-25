@@ -88,12 +88,21 @@ form.addEventListener("submit", async function(e){
 
 // Delete Student
 
-table.addEventListener('click', function(e){
+table.addEventListener('click', async function(e){
 
-    if(
-      e.target.classList.contains('delete-btn')
-    ){
-        e.target.closest('tr').remove();
+    if(e.target.classList.contains('delete-btn')){
+
+        const id = e.target.dataset.id;
+
+        const response = await fetch(`/students/${id}`, {
+            method: "DELETE"
+        });
+
+        const data = await response.json();
+
+        alert(data.message);
+
+        loadStudents();
     }
 
 });
@@ -107,7 +116,7 @@ function logout(){
 
     alert("Logged Out Successfully");
 
-    window.location.href = "admin.html";
+    window.location.href = "/admin";
 
 }
 async function loadStudents() {
@@ -121,6 +130,17 @@ async function loadStudents() {
     students.forEach(student => {
 
         let row = document.createElement('tr');
+        let status = "Pass";
+
+        if (
+            student.maths < 37 ||
+            student.physics < 37 ||
+            student.chemistry < 37 ||
+            student.english < 37 ||
+            student.computer_science < 37
+        ) {
+            status = "Fail";
+        }
 
         let percentage =
         (
@@ -131,21 +151,19 @@ async function loadStudents() {
             student.computer_science
         ) / 5;
 
-        let status = percentage >= 35 ? "Pass" : "Fail";
-
-        row.innerHTML = `
+        
+       row.innerHTML = `
             <td>${student.name}</td>
             <td>${student.enrollment_no}</td>
             <td>${student.email}</td>
             <td>${percentage.toFixed(2)}%</td>
             <td>${status}</td>
             <td>
-                <button class="delete-btn">
+                <button class="delete-btn" data-id="${student.id}">
                     Delete
                 </button>
             </td>
         `;
-
         table.appendChild(row);
     });
 }

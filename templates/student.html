@@ -61,8 +61,8 @@
 
             <div id="home" class="content active">
 
-                <div class="welcome-box">
-                    Welcome Harry 👋
+                <div class="welcome-box" id="welcomeName">
+                     Welcome Student 👋
                 </div>
 
                 <div class="cards">
@@ -74,17 +74,17 @@
 
                     <div class="card">
                         <h2>Percentage</h2>
-                        <p>83%</p>
+                        <p id="percentage">0%</p>
                     </div>
 
                     <div class="card">
                         <h2>Email</h2>
-                        <p>harry@gmail.com</p>
+                        <p id="homeEmail">-</p>
                     </div>
 
                     <div class="card">
                         <h2>Status</h2>
-                        <p>Pass</p>
+                        <p id="status">-</p>
                     </div>
 
                 </div>
@@ -100,7 +100,7 @@
 
                     <img src="{{ url_for('static', filename='image/amit varma.jpg') }}">
 
-                    <h3>Harry</h3>
+                    <h3 id="profileName">Student</h3>
 
                     <p>class 12</p>
 
@@ -110,24 +110,24 @@
 
                     <div class="card">
                         <h3>Name</h3>
-                        <p>Harry</p>
+                        <p id="studentName">Student</p>
                     </div>
 
                     <div class="card">
                         <h3>Enrollment</h3>
-                        <p>A4009587</p>
+                        <p id="enrollmentNo">-</p>
                     </div>
                     <div class="card">
                         <h3>Email</h3>
-                        <p>harry@gmail.com</p>
+                        <p id="profileEmail">-</p>
                     </div>
                     <div class="card">
                         <h3>Class</h3>
-                        <p>12th Science</p>
+                        <p id="className">-</p>
                     </div>
                     <div class="card">
                         <h3>Mobile</h3>
-                        <p>1234567890</p>
+                        <p id="mobile">-</p>
                     </div>
 
                 </div>
@@ -233,7 +233,8 @@
 
     </div>
 
-    <script src="../static/app.js"></script>
+    
+    <script src="{{ url_for('static',filename='student.js') }}"></script>
 
 </body>
 
