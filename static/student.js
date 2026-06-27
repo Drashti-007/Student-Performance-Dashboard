@@ -82,6 +82,33 @@ async function loadStudentData() {
             "Dashboard:",
             dashboard
         );
+        // Attendance API
+
+        const attendanceResponse =
+        await fetch(
+            `/student/attendance/${enrollment_no}`
+        );
+
+        const attendance =
+        await attendanceResponse.json();
+
+        let attendanceHTML = "";
+
+        Object.entries(attendance).forEach(
+            ([subject, percent]) => {
+
+                attendanceHTML += `
+                <tr>
+                    <td>${subject}</td>
+                    <td>${percent}%</td>
+                </tr>
+                `;
+            }
+        );
+
+        document.getElementById(
+            "attendanceTable"
+        ).innerHTML = attendanceHTML;
 
         // Home Section
 
