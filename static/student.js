@@ -89,22 +89,30 @@ async function loadStudentData() {
             `/student/attendance/${enrollment_no}`
         );
 
+       
+
         const attendance =
         await attendanceResponse.json();
 
+        console.log(attendance);
+
         let attendanceHTML = "";
 
-        Object.entries(attendance).forEach(
-            ([subject, percent]) => {
+        Object.entries(
+            attendance.attendance
+        ).forEach(([subject, percent]) => {
 
-                attendanceHTML += `
-                <tr>
-                    <td>${subject}</td>
-                    <td>${percent}%</td>
-                </tr>
-                `;
-            }
-        );
+            attendanceHTML += `
+            <tr>
+                <td>${subject}</td>
+                <td>${percent}%</td>
+            </tr>
+            `;
+        });
+
+document.getElementById(
+    "attendanceTable"
+).innerHTML = attendanceHTML;
 
         document.getElementById(
             "attendanceTable"
