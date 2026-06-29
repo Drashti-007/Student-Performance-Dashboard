@@ -110,9 +110,7 @@ async function loadStudentData() {
             `;
         });
 
-        document.getElementById(
-            "attendanceTable"
-        ).innerHTML = attendanceHTML;
+       
 
         document.getElementById(
             "attendanceTable"
@@ -147,10 +145,9 @@ async function loadStudentData() {
         performanceData.marks.maths + " Marks";
 
         document.getElementById(
-            "computerMarks"
+            "computerScienceMarks"
         ).innerText =
         performanceData.marks.computer_science + " Marks";
-
         // Home Section
 
         document.getElementById(
