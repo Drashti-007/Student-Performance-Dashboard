@@ -110,13 +110,46 @@ async function loadStudentData() {
             `;
         });
 
-document.getElementById(
-    "attendanceTable"
-).innerHTML = attendanceHTML;
+        document.getElementById(
+            "attendanceTable"
+        ).innerHTML = attendanceHTML;
 
         document.getElementById(
             "attendanceTable"
         ).innerHTML = attendanceHTML;
+
+        // Performance API
+
+        const performanceResponse =
+        await fetch(`/student/performance/${enrollment_no}`);
+
+        const performanceData =
+        await performanceResponse.json();
+
+        document.getElementById(
+            "englishMarks"
+        ).innerText =
+        performanceData.marks.english + " Marks";
+
+        document.getElementById(
+            "physicsMarks"
+        ).innerText =
+        performanceData.marks.physics + " Marks";
+
+        document.getElementById(
+            "chemistryMarks"
+        ).innerText =
+        performanceData.marks.chemistry + " Marks";
+
+        document.getElementById(
+            "mathsMarks"
+        ).innerText =
+        performanceData.marks.maths + " Marks";
+
+        document.getElementById(
+            "computerMarks"
+        ).innerText =
+        performanceData.marks.computer_science + " Marks";
 
         // Home Section
 
