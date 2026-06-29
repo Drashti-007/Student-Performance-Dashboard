@@ -167,5 +167,33 @@ async function loadStudents() {
         table.appendChild(row);
     });
 }
+async function loadAnalytics() {
 
+    const response =
+        await fetch("/admin/analytics");
+
+    const analytics =
+        await response.json();
+
+    document.getElementById(
+        "averageMarks"
+    ).innerText =
+        analytics.average_marks.toFixed(2) + "%";
+
+    document.getElementById(
+        "passStudents"
+    ).innerText =
+        analytics.pass_students;
+
+    document.getElementById(
+        "failStudents"
+    ).innerText =
+        analytics.fail_students;
+
+    document.getElementById(
+        "totalStudents"
+    ).innerText =
+        analytics.total_students;
+}
 loadStudents();
+loadAnalytics();

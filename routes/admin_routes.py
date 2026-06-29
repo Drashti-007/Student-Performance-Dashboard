@@ -6,7 +6,8 @@ from models.admin_model import(
     delete_student,
     update_student,
     get_top_performers,
-    get_class_average
+    get_class_average,
+    get_admin_analytics
 )
 
 admin_bp = Blueprint('admin', __name__)
@@ -74,3 +75,12 @@ def class_average():
         }), 404
 
     return jsonify(average_data)
+@admin_bp.route(
+    "/admin/analytics",
+    methods=["GET"]
+)
+def admin_analytics():
+
+    analytics = get_admin_analytics()
+
+    return jsonify(analytics)

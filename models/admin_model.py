@@ -217,3 +217,64 @@ def get_class_average():
 
         "overall_class_average": overall_class_average
     }
+
+def get_admin_analytics():
+
+    conn = get_db_connection()
+
+    students = conn.execute(
+        "SELECT * FROM students"
+    ).fetchall()
+
+    conn.close()
+
+    if not students:
+        return None
+
+    total_students = len(students)
+
+    pass_students = 0
+    fail_students = 0
+
+    total_percentage = 0
+
+    for student in students:
+
+        student = dict(student)
+
+        percentage = (
+
+            student["maths"] +
+            student["physics"] +
+            student["chemistry"] +
+            student["english"] +
+            student["computer_science"]
+
+        ) / 5
+
+        total_percentage += percentage
+
+        if (
+            student["maths"] >= 37 and
+            student["physics"] >= 37 and
+            student["chemistry"] >= 37 and
+            student["english"] >= 37 and
+            student["computer_science"] >= 37
+        ):
+            pass_students += 1
+        else:
+            fail_students += 1
+
+    average_marks = total_percentage / total_students
+
+    return {
+
+        "total_students": total_students,
+
+        "average_marks": average_marks,
+
+        "pass_students": pass_students,
+
+        "fail_students": fail_students
+
+    }
