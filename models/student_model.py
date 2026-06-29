@@ -165,11 +165,11 @@ def get_student_performance(enrollment_no):
     status = "Pass"
 
     if (
-        student['maths'] < 35 or
-        student['physics'] < 35 or
-        student['chemistry'] < 35 or
-        student['english'] < 35 or
-        student['computer_science'] < 35
+        student['maths'] < 37 or
+        student['physics'] < 37 or
+        student['chemistry'] < 37 or
+        student['english'] < 37 or
+        student['computer_science'] < 37
     ):
         status = "Fail"
 

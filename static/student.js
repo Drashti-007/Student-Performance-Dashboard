@@ -222,6 +222,38 @@ async function loadStudentData() {
             "status"
         ).innerText =
             status;
+        // Report API
+
+        const reportResponse =
+        await fetch(`/student/report/${enrollment_no}`);
+
+        const report =
+        await reportResponse.json();
+
+        console.log("Report:", report);
+        let marks = report.performance.marks;
+
+        let totalMarks =
+            marks.maths +
+            marks.physics +
+            marks.chemistry +
+            marks.english +
+            marks.computer_science;
+
+        document.getElementById(
+            "totalMarks"
+        ).innerText = totalMarks;
+
+        document.getElementById(
+            "reportPercentage"
+        ).innerText =
+        report.performance.average_marks.toFixed(2) + "%";
+
+        document.getElementById(
+            "reportResult"
+        ).innerText =
+        report.performance.status;
+
 
     } catch (error) {
 
