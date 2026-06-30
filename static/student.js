@@ -229,11 +229,9 @@ async function loadStudentData() {
 
         const report =
         await reportResponse.json();
+        const marks = report.performance.marks;
 
-        console.log("Report:", report);
-        let marks = report.performance.marks;
-
-        let totalMarks =
+        const total =
             marks.maths +
             marks.physics +
             marks.chemistry +
@@ -242,7 +240,7 @@ async function loadStudentData() {
 
         document.getElementById(
             "totalMarks"
-        ).innerText = totalMarks;
+        ).innerText = total;
 
         document.getElementById(
             "reportPercentage"
@@ -254,6 +252,99 @@ async function loadStudentData() {
         ).innerText =
         report.performance.status;
 
+        new Chart(
+            document.getElementById("marksChart"),
+            {
+                type: "bar",
+
+                data: {
+
+                    labels: [
+                        "Maths",
+                        "Physics",
+                        "Chemistry",
+                        "English",
+                        "CS"
+                    ],
+
+                    datasets: [{
+
+                        label: "Marks",
+
+                        data: [
+
+                            marks.maths,
+                            marks.physics,
+                            marks.chemistry,
+                            marks.english,
+                            marks.computer_science
+
+                        ]
+
+                    }]
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    plugins: {
+
+                        legend: {
+                            display: false
+                        }
+
+                    }
+
+                }
+            }
+        );
+
+        let passCount = 0;
+        let failCount = 0;
+
+        Object.values(marks).forEach(mark=>{
+
+            if(mark >= 37){
+
+                passCount++;
+
+            }
+
+            else{
+
+                failCount++;
+
+            }
+
+        });
+
+        new Chart(
+            document.getElementById("resultPieChart"),
+            {
+
+                type:"pie",
+
+                data:{
+
+                    labels:[
+                        "Pass Subjects",
+                        "Fail Subjects"
+                    ],
+
+                    datasets:[{
+
+                        data:[
+                            passCount,
+                            failCount
+                        ]
+
+                    }]
+
+                }
+
+            }
+        );
 
     } catch (error) {
 

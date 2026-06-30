@@ -138,3 +138,30 @@ line-height:2;
 font-size:20px;
 }
 
+.chart-row{
+
+    display:flex;
+
+    gap:30px;
+
+    
+
+    margin-top:20px;
+
+}
+
+.small-chart{
+
+    width:500px;
+
+    height:500px;
+
+}
+
+.small-chart canvas{
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
